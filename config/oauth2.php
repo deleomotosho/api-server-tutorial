@@ -28,7 +28,25 @@ return [
     */
 
     'grant_types' => [
-        
+        'password' => [
+            'class' => '\League\OAuth2\Server\Grant\PasswordGrant',
+            'callback' => function($email, $password){
+                $cred = [
+                    'email' => $email,
+                    'password' => $password
+                ];
+
+                if(Auth::once($cred)){
+
+                    return Auth::user()->id;
+
+                } else {
+                    return false;
+                }
+
+            },
+            'access_token_ttl' => 3600
+        ]
 
     ],
 
@@ -38,7 +56,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This will tell the authorization server the output format for the access
-    | token and the resource server how to parse the access token used.
+    | token and the resource server how to 1parse the access token used.
     |
     | Default value is League\OAuth2\Server\TokenType\Bearer
     |

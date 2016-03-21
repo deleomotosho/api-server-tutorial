@@ -93,7 +93,7 @@ class_alias('Illuminate\Support\Facades\Config', 'Config');
 */
 
 // $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+ $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
@@ -104,7 +104,7 @@ $app->register(\LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class);
 |--------------------------------------------------------------------------
 | Load The Application Routes
 |--------------------------------------------------------------------------
-|
+
 | Next we will include the routes file so that they can all be added to
 | the application. This will provide all of the URLs the application
 | can respond to, as well as the controllers that may handle them.
